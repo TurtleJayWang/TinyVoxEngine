@@ -29,6 +29,8 @@ void SDLApplication::Loop()
         glClearColor(0.3f, 0.4f, 0.4f, 1.0f);
 
         Update();
+
+        SDL_GL_SwapWindow(_window);
     }
 }
 
@@ -81,6 +83,11 @@ void SDLApplication::CreateSDLWindow(const char* title, int width, int height, i
         log << "GLEW initialized successfully" << std::endl;
         log.print();
     }
+}
+
+void SDLApplication::GetWindowSize(int* width, int* height)
+{
+    *width = _width, *height = _height;
 }
 
 SDLApplication::~SDLApplication()

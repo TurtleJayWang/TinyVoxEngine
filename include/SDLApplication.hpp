@@ -11,6 +11,7 @@
 #include <algorithm>
 
 #include <Common.hpp>
+#include <Scene/Scene.hpp>
 
 class SDLApplication
 {
@@ -23,6 +24,8 @@ public:
 protected:
 
     void CreateSDLWindow(const char* windowTitle, int width, int height, int flags = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+
+    void GetWindowSize(int *width, int *height);
 
     virtual void Update() = 0;
 
@@ -45,6 +48,8 @@ private:
     int _width, _height;
 
     enum WindowType { SDL } windowType;
+
+    std::vector<Scene*> sceneList;
 
     Log log;
 
